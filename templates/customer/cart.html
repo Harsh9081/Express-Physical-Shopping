@@ -1,0 +1,122 @@
+{% extends 'customer/common/layout.html'%}
+{% load static %}
+{% block scripts %}
+{% csrf_token %}
+<script type="text/javascript">
+     function updateQuantity(quantity, pid)
+    {
+        $.ajax({
+
+            type:"POST",
+            url:'/customer/update_quantity/',
+            data : { quantity : quantity, product_id : pid,'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val() },
+            // dataType: 'json',
+            success:function(result)
+            {
+                document.location='http://127.0.0.1:8000/customer/cart/';
+            }
+        });
+    }
+    
+  </script>
+{% endblock scripts %}
+{% block content %}
+
+ <main>
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/customer/index"><i class="fa fa-home"></i></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">cart</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+
+        <!-- cart main wrapper start -->
+        <div class="cart-main-wrapper section-padding">
+            <div class="container">
+                <div class="section-bg-color">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- Cart Table Area -->
+                            <div class="cart-table table-responsive">
+                                {% if data %}
+                                
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="pro-thumbnail">Thumbnail</th>
+                                            <th class="pro-title">Product</th>
+                                            <th class="pro-price">Price</th>
+                                            <th class="pro-quantity">Quantity</th>
+                                            <th class="pro-subtotal">Total</th>
+                                            <th class="pro-remove">Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for dt in data %}
+                                            <tr>
+                                                <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="{{dt.product.productimage.url}}" alt="Product" /></a></td>
+                                                <td class="pro-title"><a href="#">{{dt.product.productname}}</a></td>
+                                                <td class="pro-price"><span>{{dt.product.productprice}}</span></td>
+                                                <td class="pro-quantity">
+                                                    <div class="pro-qty"><input type="text" value="{{dt.quantity}}" onchange="return updateQuantity(this.value,{{dt.id}})"></div>
+                                                </td>
+                                                <td class="pro-subtotal"><span>{% widthratio dt.quantity 1 dt.product.productprice %}</span></td>
+                                                <td class="pro-remove"><a href="{% url 'delete_from_cart' dt.id %}"><i class="fa fa-trash-o"></i></a></td>
+                                            </tr>
+                                        {% endfor %}
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                    <h5>No Products Available</h5>
+                                {% endif %}
+
+                            </div>
+                            <!-- Cart Update Option -->
+                            <div class="cart-update-option d-block d-md-flex justify-content-between">
+                               
+                                <div class="cart-update">
+                                    <a href="/customer/cart/" class="btn btn-sqr">Update Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 ml-auto">
+                            <!-- Cart Calculation Area -->
+                            <div class="cart-calculator-wrapper">
+                                <div class="cart-calculate-items">
+                                    <h6>Cart Totals</h6>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tr class="total">
+                                                <td>Total</td>
+                                                <td class="total-amount">{{tot}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <a href="/customer/timeslot" class="btn btn-sqr d-block">Book Your Timeslot</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- cart main wrapper end -->
+    </main>
+
+{% endblock %}

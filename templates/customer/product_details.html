@@ -1,0 +1,120 @@
+{% extends 'customer/common/layout.html'%}
+{%load static %}
+
+
+{% block content %}
+
+<main>
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="shop.html">shop</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">product details</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+
+        <!-- page main wrapper start -->
+        <div class="shop-main-wrapper section-padding pb-0">
+            <div class="container">
+                <div class="row">
+                    <!-- product details wrapper start -->
+                    <div class="col-lg-12 order-1 order-lg-2">
+                        <!-- product details inner end -->
+                        <div class="product-details-inner">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                <div class="product-large-slider">
+                                    <div class="pro-large-img img-zoom">
+                                        <img src="{{result.productimage.url}}" alt="product-details" />
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="col-lg-7">
+                                    <div class="product-details-des">
+                                        <div class="manufacturer-name">
+                                            <a href="#">Abhushan Jewellery</a>
+                                        </div>
+                                        <h3 class="product-name">{{result.productname}}</h3>
+                                        
+                                        <div class="price-box">
+                                            <span class="price-regular">Rs.{{result.productprice}}</span>
+                                        </div>
+                                        
+                                        <p class="pro-desc">{{result.productsmalldesc}}</p>
+                                        <div class="quantity-cart-box d-flex align-items-center">
+                                            <div class="action_link">
+                                                <a class="btn btn-cart2" href="{% url 'add_to_cart' result.id %}">Add to cart</a>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="useful-links">
+                                            
+                                            <a href="{% url 'add_to_wishlist' result.id %}" data-bs-toggle="tooltip" title="Wishlist"><i
+                                                    class="pe-7s-like"></i>wishlist</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- product details inner end -->
+
+                        <!-- product details reviews start -->
+                        <div class="product-details-reviews section-padding pb-0">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="product-review-info">
+                                        <ul class="nav review-tab">
+                                            <li>
+                                                <a class="active" data-bs-toggle="tab" href="#tab_one">description</a>
+                                            </li>
+                                            <li>
+                                                <a data-bs-toggle="tab" href="#tab_two">information</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content reviews-tab">
+                                            <div class="tab-pane fade show active" id="tab_one">
+                                                <div class="tab-one">
+                                                    <p>{{result.productlargedesc}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab_two">
+                                                <table class="table table-bordered">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>size</td>
+                                                            <td>L, M, S</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- product details reviews end -->
+                    </div>
+                    <!-- product details wrapper end -->
+                </div>
+            </div>
+        </div>
+        <!-- page main wrapper end -->
+
+        <!-- related products area start -->
+        <!-- related products area end -->
+    </main>
+
+{% endblock %}

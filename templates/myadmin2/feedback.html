@@ -1,0 +1,62 @@
+{% extends 'myadmin2/common/layout.html' %}
+
+{% block content%}
+
+<div class="form-page">
+            <!-- Page Header-->
+            <div class="bg-dash-dark-2 py-4">
+              <div class="container-fluid">
+                <h2 class="h5 mb-0">All Feedback</h2>
+              </div>
+            </div>
+            <!-- Breadcrumb-->
+            <div class="container-fluid py-2">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 py-3 px-0">
+                  <li class="breadcrumb-item"><a href="/myadmin2/dashboard">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Feedback</li>
+                </ol>
+              </nav>
+            </div>
+        <section class="tables py-0">
+          <div class="container-fluid">
+            <div class="row gy-12">
+              <div class="col-lg-12">
+                <div class="card mb-0">
+                  <div class="card-header">
+                    <h3 class="h4 mb-0">All Feedback Details</h3>
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="table-responsive">
+                      <table class="table mb-0 table-striped table-hover">
+                        <thead>
+                          <tr>
+                            <th>Feedback Id</th> 
+                            <th>Customer Name</th>  
+                            <th>Customer Email</th>
+                            <th>Review</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for row in result %}
+                          <tr>
+                            <th scope="row">{{row.id}}</th>    
+                            <td>{{row.name}}</td>
+                            <td>{{row.email}}</td>
+                            <td>{{row.review}}</td>  
+                          </tr> 
+                          {% endfor %}
+						            </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+        <!-- Page Footer-->
+      </div>
+
+{% endblock %}

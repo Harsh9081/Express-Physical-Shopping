@@ -1,0 +1,84 @@
+{% extends 'myadmin2/common/layout.html' %}
+
+{% block content%}
+
+<div class="form-page">
+            <!-- Page Header-->
+            <div class="bg-dash-dark-2 py-4">
+              <div class="container-fluid">
+                <h2 class="h5 mb-0">All Orders</h2>
+              </div>
+            </div>
+            <!-- Breadcrumb-->
+            <div class="container-fluid py-2">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 py-3 px-0">
+                  <li class="breadcrumb-item"><a href="/myadmin2/dashboard">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Orders</li>
+                </ol>
+              </nav>
+            </div>
+        <section class="tables py-0">
+          <div class="container-fluid">
+            <div class="row gy-12">
+              <div class="col-lg-12">
+                <div class="card mb-0">
+                  <div class="card-header">
+                    <h3 class="h4 mb-0">All Orders Details</h3>
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="table-responsive">
+                      <table class="table mb-0 table-striped table-hover">
+                        <thead>
+                          <tr>
+                            <th>Order Id</th> 
+                            <th>User Id</th>  
+                            <th>Product Id</th>
+                            <th>Price</th> 
+                            <th>Contact</th>  
+                            <th>Time-slot</th>
+                            <th>Image</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr> 
+                            <th scope="row">3002</th>  
+                            <td>1002</td>  
+                            <td>101</td>
+                            <td>₹15000</td> 
+                            <td>9655245520</td>  
+                            <td>21-1-2022 3:00 pm</td>
+                            <td></td>
+                          </tr> 
+                          <tr> 
+                            <th scope="row">3003</th>  
+                            <td>1003</td>  
+                            <td>201</td>
+                            <td>₹150000</td> 
+                            <td>9601234560</td>  
+                            <td>21-1-2022 4:00 pm</td>
+                            <td></td>
+                          </tr>
+                          <tr> 
+                            <th scope="row">3004</th>  
+                            <td>1004</td>  
+                            <td>301</td>
+                            <td>₹50000</td> 
+                            <td>4567234560</td>  
+                            <td>22-1-2022 9:00 am</td>
+                            <td></td>
+                          </tr>
+						            </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+        <!-- Page Footer-->
+      </div>
+
+{% endblock %}

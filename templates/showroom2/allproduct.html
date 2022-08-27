@@ -1,0 +1,67 @@
+{% extends 'showroom2/common/layout.html' %}
+{% load static %}
+
+{% block content %}
+
+            <div class="row justify-content-between align-items-center mb-10">
+
+                <!-- Page Heading Start -->
+                <div class="col-12 col-lg-auto mb-20">
+                    <div class="page-heading">
+                        <h3><a href="/showroom2/dashboard">Dashboard</a> <span>/ All Product</span></h3>
+                    </div>
+                </div><!-- Page Heading End -->
+
+            </div><!-- Page Headings End -->
+
+            <div class="row">
+
+                <!--Manage Product List Start-->
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Product ID</th>
+                                    <th>Product Name</th>
+                                    <th>Product Price</th>
+                                    <th>Product Weight</th>
+                                    <th>Small Discription</th>
+                                    <th>Large Discription</th>
+                                    <th>Image</th>
+                                    <th>Image2</th>
+                                    <th>Category</th>
+                                    <th>Subcategory</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in result1 %}
+                                <tr>
+                                    <td>{{row.id}}</td> 
+                                    <td>{{row.productname}}</td>
+                                    <td>{{row.productprice}}</td>
+                                    <td>{{row.productweight}}</td>
+                                    <td>{{row.productsmalldesc}}</td> 
+                                    <td>{{row.productlargedesc}}</td>
+                                    <td><img src="{{row.productimage.url}}" alt="" class="product-image rounded-circle"></td>
+                                    <td><img src="{{row.productimage2.url}}" alt="" class="product-image rounded-circle"></td>
+                                    <td>{{row.addcategory.categoryname}}</td>
+                                    <td>{{row.addsubcategory.subcategoryname}}</td>
+                                    <td>
+                                        <div class="table-action-buttons">
+                                            <a class="edit button button-box button-xs button-info" href="#"><i class="zmdi zmdi-edit"></i></a>
+                                            <a class="delete button button-box button-xs button-danger" href="/showroom2/destpro/{{row.id}}"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--Manage Product List End-->
+
+            </div>
+
+{% endblock %}

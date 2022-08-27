@@ -1,0 +1,64 @@
+{% extends 'showroom2/common/layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3><a href="/showroom2/dashboard">Dashboard</a><span>/ Shedule Time</span></h3>
+        </div>
+    </div><!-- Page Heading End -->
+
+</div><!-- Page Headings End -->
+
+<!-- Add or Edit Product Start -->
+<div class="add-edit-product-wrap col-12">
+
+    <div class="add-edit-product-form">
+        <form action="/showroom2/schedulslot/{{result.id}}" method="post">
+                {% csrf_token %}
+            <h4 class="title">Shedule New Time</h4>
+
+            <div class="row">
+                <div class="col-lg-12 col-12 mb-30"><input class="form-control" name="shu_date" type="date" value="{{result1.bookdate}}" required></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-12 mb-30">
+                    <select class="form-control select2" name="shu_time1" id="sel2">
+                        <option value="{{result1.booktime}}">Select TIme</option>
+                        <option value="9:00 to 9:30">9:00 to 9:30</option>
+                        <option value="9:30 to 10:30">9:30 to 10:30</option>
+                        <option value="10:00 to 10:30">10:00 to 10:30</option>
+                        <option value="10:30 to 11:00">10:30 to 11:00</option>
+                        <option value="11:30 to 11:30">11:30 to 11:30</option>
+                        <option value="11:30 to 12:00">11:30 to 12:00</option>
+                        <option value="1:00 to 1:30">1:00 to 1:30</option>
+                        <option value="1:30 to 2:00">1:30 to 2:00</option>
+                        <option value="2:00 to 2:30">2:00 to 2:30</option>
+                        <option value="2:30 to 3:00">2:30 to 3:00</option>
+                        <option value="3:00 to 3:30">3:00 to 3:30</option>
+                        <option value="3:30 to 4:00">3:30 to 4:00</option>
+                        <option value="4:00 to 4:30">4:00 to 4:30</option>
+                        <option value="4:30 to 5:00">4:30 to 5:00</option>
+                        <option value="5:00 to 5:30">5:00 to 5:30</option>
+                        <option value="5:30 to 6:00">5:30 to 6:00</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Button Group Start -->
+            <div class="row">
+                <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                    <button class="button button-outline button-primary mb-10 ml-10 mr-0">Submit</button>
+                    
+                </div>
+            </div><!-- Button Group End -->
+
+        </form>
+    </div>
+
+</div><!-- Add or Edit Product End -->
+
+{% endblock %}

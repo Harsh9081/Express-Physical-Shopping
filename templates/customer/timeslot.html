@@ -1,0 +1,111 @@
+{% extends 'customer/common/layout.html'%}
+{%load static %}
+
+
+{% block content %}
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/customer/index/"><i class="fa fa-home"></i></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Time Slot</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact-info">
+                    <img src="{% static 'customer/img/store_desktop.jpg'%}" width="100%" height="100%" alt="about thumb">
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-area section-padding pt-0">
+            <div class="container">
+                
+                <br><br><br><br>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="contact-message">
+                            <h4 class="contact-title">Tell Us Your Project</h4>
+                            <form  action="/customer/storetimeslot/" method="post" class="contact-form">
+                                <div class="row">
+                                    {% if messages %}
+                                    <ul class="messages">
+                                        {% for message in messages %}
+                                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                    {% csrf_token %}
+                                    <div class="col-lg-12 col-md-6 col-sm-6">
+                                        <input name="bkdate" placeholder="bookkdate" type="date" required>
+                                    </div>
+                                    <div class="col-lg-12 col-md-6 col-sm-6">
+                                        <select class="nice-select" name="bktime">
+                                            <option value="#">Select TIme</option>
+                                            <option value="9:00 to 9:30">9:00 to 9:30</option>
+                                            <option value="9:30 to 10:30">9:30 to 10:30</option>
+                                            <option value="10:00 to 10:30">10:00 to 10:30</option>
+                                            <option value="10:30 to 11:00">10:30 to 11:00</option>
+                                            <option value="11:30 to 11:30">11:30 to 11:30</option>
+                                            <option value="11:30 to 12:00">11:30 to 12:00</option>
+                                            <option value="1:00 to 1:30">1:00 to 1:30</option>
+                                            <option value="1:30 to 2:00">1:30 to 2:00</option>
+                                            <option value="2:00 to 2:30">2:00 to 2:30</option>
+                                            <option value="2:30 to 3:00">2:30 to 3:00</option>
+                                            <option value="3:00 to 3:30">3:00 to 3:30</option>
+                                            <option value="3:30 to 4:00">3:30 to 4:00</option>
+                                            <option value="4:00 to 4:30">4:00 to 4:30</option>
+                                            <option value="4:30 to 5:00">4:30 to 5:00</option>
+                                            <option value="5:00 to 5:30">5:00 to 5:30</option>
+                                            <option value="5:30 to 6:00">5:30 to 6:00</option>
+                                        </select>
+                                    </div>
+                                    <br><br><br>
+                                    <div class="col-lg-12 col-md-6 col-sm-6">
+                                        <select class="nice-select" name="bkshow">
+                                            <option value="#">Select Showroom</option>
+                                            {% for row in result %}
+                                            <option value="{{row.id}}">{{row.show_name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <br><br><br>
+                                    <div class="col-12">
+                                        <div class="contact-btn">
+                                            <button class="btn btn-sqr" type="submit">Send Message</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact-info">
+                            <h4 class="contact-title">BOOK AM APPONTMENT</h4>
+                            <p>Our customers are at the heart of everything we do at Abhushan Jewellers. Please use this service and give us the opportunity to provide personalised care to you at our stores while strictly adhering to social distancing norms and abiding by all security measures. All we want is for you to have peace of mind while you shop for the perfect jewel pieces at your favourite Abhushan Jewelery store!</p>
+                            <ul>
+                                <li><i class="fa fa-fax"></i>Click on the 'Book An Appointment' tab and fill all details in the form pertaining to the store that you would like to visit as well as the date and time which is convenient for you</li>
+                                <li><i class="fa fa-phone"></i> You will receive a confirmation via email and SMS</li>
+                                <li><i class="fa fa-envelope-o"></i> At the store, we will personally attend to you to help you choose from a collection that we will keep curated beforehand itself based on your preference. Safety is of prime importance to us and throughout our interaction, we will strictly adhere to the highest form of security measures deployed especially in light of the Covid-19 crisis. Do give us the opportunity to extend this completely customized experience for you! </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- contact area end -->
+    
+
+{% endblock %}

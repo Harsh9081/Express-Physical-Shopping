@@ -1,0 +1,67 @@
+{% extends 'customer/common/layout.html'%}
+{%load static %}
+
+
+{% block content %}
+
+
+        <div class="cart-main-wrapper section-padding">
+            <div class="container">
+                <div class="section-bg-color">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- Cart Table Area -->
+                        	<div class="contact-info">
+                            <h4 class="contact-title">Hello  ..  {{result.user.first_name}} {{result.user.last_name}}</h4>
+                            <p>Your Slot is set for {{result.bookdate}} at {{result.booktime}} at the {{result.addshowrom.show_name}} Branch Succsesfully.</p>
+                            <p>Your cart details are mentioned below</p>
+                        	</div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="cart-table table-responsive">
+                                {% if result1 %}
+                                
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="pro-thumbnail">Thumbnail</th>
+                                            <th class="pro-title">Product</th>
+                                            <th class="pro-price">Price</th>
+                                            <th class="pro-quantity">Quantity</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for dt in result1 %}
+                                            <tr>
+                                                <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="{{dt.product.productimage.url}}" alt="Product" /></a></td>
+                                                <td class="pro-title"><a href="#">{{dt.product.productname}}</a></td>
+                                                <td class="pro-price"><span>{{dt.product.productprice}}</span></td>
+                                                <td class="pro-price"><span>{{dt.quantity}}</span></td>
+                                                <!-- <td class="pro-quantity">
+                                                    <div class="pro-qty"><input type="text" value="{{dt.quantity}}" onchange="return updateQuantity(this.value,{{dt.id}})"></div>
+                                                </td> -->
+                                                
+                                            </tr>
+                                        {% endfor %}
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                                {% endif %}
+
+                            </div>
+                            <!-- Cart Update Option -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 ml-auto">
+                            <!-- Cart Calculation Area -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}

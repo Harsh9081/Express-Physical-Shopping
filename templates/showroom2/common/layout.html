@@ -1,0 +1,117 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Abhushan Jewellery</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'showroom2/images/favicon.ico'%}">
+
+    <!-- CSS
+    ============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'showroom2/css/vendor/bootstrap.min.css'%}">
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="{% static 'showroom2/css/vendor/material-design-iconic-font.min.css'%}">
+    <link rel="stylesheet" href="{% static 'showroom2/css/vendor/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'showroom2/css/vendor/themify-icons.css'%}">
+    <link rel="stylesheet" href="{% static 'showroom2/css/vendor/cryptocurrency-icons.css'%}">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static 'showroom2/css/plugins/plugins.css'%}">
+
+    <!-- Helper CSS -->
+    <link rel="stylesheet" href="{% static 'showroom2/css/helper.css'%}">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{% static 'showroom2/css/style.css'%}">
+
+    <!-- Custom Style CSS Only For Demo Purpose -->
+    <link id="cus-style" rel="stylesheet" href="{% static 'showroom2/css/style-primary.css'%}">
+</head>
+
+<body class="skin-dark">
+
+    <div class="main-wrapper">
+
+
+        <!-- Header Section Start -->
+        {% include 'showroom2/common/header.html' %}
+        <!-- Header Section End -->
+        <!-- Side Header Start -->
+        {% include 'showroom2/common/sidebar.html' %}
+        <!-- Side Header End -->
+
+        <!-- Content Body Start -->
+        <div class="content-body">
+            {% block content %}
+            <!-- Page Headings Start -->
+            {% endblock%}
+
+        </div><!-- Content Body End -->
+
+        <!-- Footer Section Start -->
+        {% include 'showroom2/common/footer.html' %}
+        <!-- Footer Section End -->
+
+    </div>
+
+    <!-- JS
+============================================ -->
+
+    <!-- Global Vendor, plugins & Activation JS -->
+    <script src="{% static 'showroom2/js/vendor/modernizr-3.6.0.min.js'%}"></script>
+    <script src="{% static 'showroom2/js/vendor/jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static 'showroom2/js/vendor/popper.min.js'%}"></script>
+    <script src="{% static 'showroom2/js/vendor/bootstrap.min.js'%}"></script>
+    <!--Plugins JS-->
+    <script src="{% static 'showroom2/js/plugins/perfect-scrollbar.min.js'%}"></script>
+    <script src="{% static 'showroom2/js/plugins/tippy4.min.js.js'%}"></script>
+    <!--Main JS-->
+    <script src="{% static 'showroom2/js/main.js'%}"></script>
+
+    <!-- Plugins & Activation JS For Only This Page -->
+
+    <!--Moment-->
+    <script src="{% static 'showroom2/js/plugins/moment/moment.min.js'%}"></script>
+
+    <!--Daterange Picker-->
+    <script src="{% static 'showroom2/js/plugins/daterangepicker/daterangepicker.js'%}"></script>
+    <script src="{% static 'showroom2/js/plugins/daterangepicker/daterangepicker.active.js'%}"></script>
+
+    <!--Echarts-->
+    <script src="{% static 'showroom2/js/plugins/chartjs/Chart.min.js'%}"></script>
+    <script src="{% static 'showroom2/js/plugins/chartjs/chartjs.active.js'%}"></script>
+
+    <!--VMap-->
+    <script src="{% static 'showroom2/js/plugins/vmap/jquery.vmap.min.js'%}"></script>
+    <script src="{% static 'showroom2/js/plugins/vmap/maps/jquery.vmap.world.js'%}"></script>
+    <script src="{% static 'showroom2/js/plugins/vmap/maps/samples/jquery.vmap.sampledata.js'%}"></script>
+    <script src="{% static 'showroom2/js/plugins/vmap/vmap.active.js'%}"></script>
+
+    <script type="text/javascript">
+    function get_subcategory(id)
+    {
+        $.ajax({
+            type:'GET',
+            url:'/showroom2/get_subcategory/',
+            data:'cat_id='+id,
+            success:function(result)
+            {
+                $("#sel2").html(result);
+            }
+        });
+    }
+    </script>
+
+</body>
+
+
+<!-- Mirrored from demo.hasthemes.com/adomx-preview/dark/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Mar 2022 16:58:21 GMT -->
+</html>

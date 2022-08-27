@@ -1,0 +1,65 @@
+{% extends 'showroom2/common/layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3>Get User Data</h3>
+        </div>
+    </div><!-- Page Heading End -->
+
+    <!-- Page Button Group Start -->
+    <!-- Page Button Group End -->
+
+</div><!-- Page Headings End -->
+
+<!-- Top Report Wrap Start -->
+<div class="row">
+   	<div class="col-sm-8 mx-auto">
+   		<form method="post">
+   			{% csrf_token %}
+   			<input type="text" name="search" placeholder="Enter User Name">
+   			<input type="submit" >
+   		</form>
+   	</div>
+   	<div class="col-sm-8 mt-5 pt-5 mx-auto">
+   	{% if data %}
+   		<p>{{data.username}}</p>
+
+   		{% if booking %}
+   			<table>
+   				<tr>
+   					<th>bDate</th>
+   				</tr>
+   				{% for i in booking %}
+   				<tr>
+   					<td>{{i.bookdate}}</td>
+   				</tr>
+   				{% endfor %}
+   			</table>
+   		{% endif %}
+
+   		{% if cart %}
+   			<table>
+   				<tr>
+   					<th>Product</th>
+   				</tr>
+   				{% for i in cart %}
+   				<tr>
+   					<td>{{i.product.productname}}</td>
+   				</tr>
+   				{% endfor %}
+   			</table>
+   		{% endif %}
+   	{% else %}
+   		<p>User not Found</p>
+   	{% endif %}
+   </div>
+</div><!-- Top Report Wrap End -->
+
+
+{% endblock %}

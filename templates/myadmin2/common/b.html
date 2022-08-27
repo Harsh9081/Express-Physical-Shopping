@@ -1,0 +1,78 @@
+{% extends 'myadmin2/common/layout.html' %}
+
+{% block content%}
+
+<div class="form-page">
+            <!-- Page Header-->
+            <div class="bg-dash-dark-2 py-4">
+              <div class="container-fluid">
+                <h2 class="h5 mb-0">All category</h2>
+              </div>
+            </div>
+            <!-- Breadcrumb-->
+            <div class="container-fluid py-2">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 py-3 px-0">
+                  <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">All Category</li>
+                </ol>
+              </nav>
+            </div>
+        <section class="tables py-0">
+          <div class="container-fluid">
+            <div class="row gy-12">
+              <div class="col-lg-12">
+                <div class="card mb-0">
+                  <div class="card-header">
+                    <h3 class="h4 mb-0">All Categories Details</h3>
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="table-responsive">
+                      <table class="table mb-0 table-striped table-hover">
+                        <thead>
+                          <tr>
+                            <th>Category Id</th> 
+              <th>Category Name</th> 
+              <th><u>Edit</u></th>
+              <th><u>Delete</u></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th> 
+              <td>Diamond</td> 
+              <th><u>Edit</u></th>
+              <th><u>Delete</u></th>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th> 
+              <td>Gold</td> 
+              <th><u>Edit</u></th>
+              <th><u>Delete</u></th>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th> 
+              <td>Silver</td>
+              <th><u>Edit</u></th>
+              <th><u>Delete</u></th>
+                          </tr>
+                          <tr> 
+              <th scope="row">3</th> 
+              <td>Platinum</td>
+              <th><u>Edit</u></th>
+              <th><u>Delete</u></th>
+            </tr>
+            </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+        <!-- Page Footer-->
+      </div>
+
+{% endblock %}

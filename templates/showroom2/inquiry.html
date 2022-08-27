@@ -1,0 +1,63 @@
+{% extends 'showroom2/common/layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row justify-content-between align-items-center mb-10">
+	<div class="col-12 col-lg-auto mb-20">
+		<div class="page-heading">
+	    	<h3><a href="/showroom2/dashboard">Dashboard</a> <span>/ Inquiry</span></h3>
+		</div>
+	</div>
+</div><!-- Page Headings End -->
+
+<div class="row">
+
+    <!--Manage Product List Start-->
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-bordered mb-0">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Image</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Harsh Vaghela</td>
+                        <td>harshvaghela890@gmail.com</td>
+                        <td>1234567891</td>
+                        <td><img src="{% static 'showroom2/images/product/list-product-5.jpg'%}" alt="" class="product-image rounded-circle"></td>
+                        <td>loreum  </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Mohan Prajapati</td>
+                        <td>mohan890@gmail.com</td>
+                        <td>1234567891</td>
+                         <td><img src="{% static 'showroom2/images/product/list-product-4.jpg'%}" alt="" class="product-image rounded-circle"></td>
+                        <td>loreum  </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Harsh prajapati</td>
+                        <td>harshprajapati890@gmail.com</td>
+                        <td>1234567891</td>
+                         <td><img src="{% static 'showroom2/images/product/list-product-3.jpg'%}" alt="" class="product-image rounded-circle"></td>
+                        <td>loreum  </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--Manage Product List End-->
+
+</div>
+
+{% endblock %}

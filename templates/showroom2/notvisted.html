@@ -1,0 +1,57 @@
+{% extends 'showroom2/common/layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row justify-content-between align-items-center mb-10">
+	<div class="col-12 col-lg-auto mb-20">
+		<div class="page-heading">
+	    	<h3><a href="/showroom2/dashboard">Dashboard</a> <span>/ Not Visited / </span></h3>
+		</div>
+	</div>
+</div><!-- Page Headings End -->
+
+<div class="row">
+
+    <!--Manage Product List Start-->
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-bordered mb-0">
+                <thead>
+                    <tr>
+                        <th>Time slot id</th>
+                        <th>User ID</th>
+                        <th>User Name</th>
+                        <th>Book Date</th>
+                        <th>Book Time</th>
+                        <th>Status</th>
+                        <th>Remarks</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in result1 %}
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.user.id}}</td>
+                        <td>{{row.user.username}}</td>
+                        <td>{{row.bookdate}}</td>
+                        <td>{{row.booktime}}</td>
+                        <td>{{row.status}}</td>
+                        <td>{{row.remarks}}</td>
+                        <td>
+                            <div class="table-action-buttons">
+                                <a class="edit button button-box button-xs button-info" href="/showroom2/schedule_time/{{row.id}}"><i class="zmdi zmdi-edit"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--Manage Product List End-->
+
+</div>
+
+{% endblock %}

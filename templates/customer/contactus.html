@@ -1,0 +1,83 @@
+{% extends 'customer/common/layout.html'%}
+{%load static %}
+
+
+{% block content %}
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/customer/index/"><i class="fa fa-home"></i></a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">contact us</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+        <!-- google map start -->
+        <br><br><br><br>
+        <!-- google map end -->
+        <!-- contact area start -->
+        <div class="contact-area section-padding pt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="contact-message">
+                            <h4 class="contact-title">Tell Us Your Project</h4>
+                            <form  action="/customer/storecontact/{{result.id}}" method="post" class="contact-form">
+                                <div class="row">
+                                    {% csrf_token %}
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <input name="name" placeholder="Name *" type="text" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <input name="phone" placeholder="Phone *" type="text" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <input name="email" placeholder="Email *" type="text" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <input name="subject" placeholder="Subject *" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="contact2-textarea text-center">
+                                            <textarea placeholder="Message *" name="message" class="form-control2" required=""></textarea>
+                                        </div>
+                                        <div class="contact-btn">
+                                            <button class="btn btn-sqr" type="submit">Send Message</button>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact-info">
+                            <h4 class="contact-title">Contact Us</h4>
+                            <p>Each and every jewellery has their own unique identity and it is exclusively designes to suit every individuals. View our range of products and you may want to visit our retail outlates located at Ahemdabad</p>
+                            <ul>
+                                <li><i class="fa fa-fax"></i> Address :  Dev Complex, C G Road, Opposite SBI Bank, Ahmedabad -380009, Gujrat</li>
+                                <li><i class="fa fa-envelope-o"></i> E-mail: abhushanjewellery@gmail.com</li>
+                                <li><i class="fa fa-phone"></i>  07924897795 </li>
+                            </ul>
+                            <div class="working-time">
+                                <h6>Working Hours</h6>
+                                <p><span>Monday – Saturday:</span>08AM – 22PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- contact area end -->
+    
+
+{% endblock %}
